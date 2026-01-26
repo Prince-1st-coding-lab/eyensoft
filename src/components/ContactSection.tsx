@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactInfo = [
   {
@@ -51,22 +52,38 @@ export function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      if (error) {
+        console.error('Error sending email:', error);
+        throw new Error(error.message || 'Failed to send message');
+      }
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }, 3000);
+    } catch (error: any) {
+      console.error('Error:', error);
+      toast({
+        title: "Failed to send message",
+        description: error.message || "Please try again later or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
