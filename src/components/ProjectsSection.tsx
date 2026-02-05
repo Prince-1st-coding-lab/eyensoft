@@ -1,4 +1,10 @@
 import { motion } from "framer-motion";
+import projectEcommerce from "@/assets/project-ecommerce.jpg";
+import projectTaskmanager from "@/assets/project-taskmanager.jpg";
+import projectAiContent from "@/assets/project-ai-content.jpg";
+import projectAnalytics from "@/assets/project-analytics.jpg";
+import projectBanking from "@/assets/project-banking.jpg";
+import projectSocial from "@/assets/project-social.jpg";
 import { ExternalLink, Github, Folder } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,7 +14,7 @@ const projects = [
   {
     title: "E-Commerce Platform",
     description: "A full-stack e-commerce solution with real-time inventory management, secure payments, and an intuitive admin dashboard.",
-    image: "/placeholder.svg",
+    image: projectEcommerce,
     tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
     liveUrl: "#",
     githubUrl: "#",
@@ -17,7 +23,7 @@ const projects = [
   {
     title: "Task Management App",
     description: "A collaborative project management tool featuring drag-and-drop interfaces, real-time updates, and team collaboration features.",
-    image: "/placeholder.svg",
+    image: projectTaskmanager,
     tags: ["TypeScript", "Next.js", "Prisma", "Socket.io"],
     liveUrl: "#",
     githubUrl: "#",
@@ -26,7 +32,7 @@ const projects = [
   {
     title: "AI Content Generator",
     description: "An AI-powered content creation tool that helps writers generate high-quality articles, blog posts, and marketing copy.",
-    image: "/placeholder.svg",
+    image: projectAiContent,
     tags: ["Python", "OpenAI", "FastAPI", "React"],
     liveUrl: "#",
     githubUrl: "#",
@@ -35,7 +41,7 @@ const projects = [
   {
     title: "Analytics Dashboard",
     description: "A real-time analytics dashboard with interactive charts, custom reporting, and data visualization features.",
-    image: "/placeholder.svg",
+    image: projectAnalytics,
     tags: ["Vue.js", "D3.js", "Firebase"],
     liveUrl: "#",
     githubUrl: "#",
@@ -44,7 +50,7 @@ const projects = [
   {
     title: "Mobile Banking App",
     description: "A secure mobile banking application with biometric authentication, transaction history, and budget tracking.",
-    image: "/placeholder.svg",
+    image: projectBanking,
     tags: ["React Native", "Node.js", "MongoDB"],
     liveUrl: "#",
     githubUrl: "#",
@@ -53,7 +59,7 @@ const projects = [
   {
     title: "Social Media Platform",
     description: "A modern social media platform with real-time messaging, content sharing, and community features.",
-    image: "/placeholder.svg",
+    image: projectSocial,
     tags: ["Next.js", "GraphQL", "AWS"],
     liveUrl: "#",
     githubUrl: "#",
