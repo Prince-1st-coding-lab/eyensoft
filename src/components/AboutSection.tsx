@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import profilePhoto from "@/assets/profile-photo.jpg";
 import { Download, MapPin, Calendar, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -51,16 +52,11 @@ export function AboutSection() {
               
               {/* Main image container */}
               <div className="relative rounded-3xl overflow-hidden bg-secondary border border-border aspect-square">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="text-6xl font-display font-bold gradient-text">
-                        P
-                      </span>
-                    </div>
-                    <p className="text-muted-foreground text-sm">Your photo here</p>
-                  </div>
-                </div>
+                <img 
+                  src={profilePhoto} 
+                  alt="Profile photo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Floating accent */}
